@@ -1,38 +1,80 @@
-// Place your key bindings in this file to override the defaults
-[
-      // NAVIGATION
-  {
-    "key": "ctrl+shift+a",
-    "command": "workbench.action.terminal.focusNext",
-    "when": "terminalFocus"
+{
+    "workbench.activityBar.location": "top",
+    "workbench.colorTheme": "One Dark Pro Darker",
+    "window.menuBarVisibility": "compact",
+    "launch": {},
+    "[json]": {},
+  "editor.minimap.enabled": false,
+  "breadcrumbs.enabled": true,
+  "workbench.iconTheme": "symbols",
+  "update.showReleaseNotes": false,
+  "zenMode.hideLineNumbers": false,
+  "editor.lineNumbers": "relative",
+
+  "vim.leader": "<Space>",
+  "vim.hlsearch": true,
+  "vim.normalModeKeyBindingsNonRecursive": [
+    // NAVIGATION
+    // switch b/w buffers
+    { "before": ["<S-h>"], "commands": [":bprevious"] },
+    { "before": ["<S-l>"], "commands": [":bnext"] },
+
+    // splits
+    { "before": ["leader+|"], "commands": [":vsplit"] },
+    { "before": ["leader", "d"], "commands": [":split"] },
+
+    // panes
+    {
+      "before": ["ctrl+h"],
+      "commands": ["workbench.action.focusLeftGroup"]
+    },
+    {
+      "before": ["ctrl+j"],
+      "commands": ["workbench.action.focusBelowGroup"]
+    },
+    {
+      "before": ["ctrl+k"],
+      "commands": ["workbench.action.focusAboveGroup"]
+    },
+    {
+      "before": ["ctrl+l"],
+      "commands": ["workbench.action.focusRightGroup"]
+    },
+    // NICE TO HAVE
+    { "before": ["leader", "w"], "commands": [":w!"] },
+    { "before": ["leader", "q"], "commands": [":q!"] },
+    { "before": ["leader", "x"], "commands": [":x!"] },
+    {
+      "before": ["[", "d"],
+      "commands": ["editor.action.marker.prev"]
+    },
+    {
+      "before": ["]", "d"],
+      "commands": ["editor.action.marker.next"]
+    },
+    {
+      "before": ["<leader>", "c", "a"],
+      "commands": ["editor.action.quickFix"]
+    },
+    { "before": ["leader", "f", "f"], "commands": ["workbench.action.quickOpen"] },
+    { "before": ["leader", "p"], "commands": ["editor.action.formatDocument"] },
+    {
+      "before": ["K"],
+      "commands": ["editor.action.showDefinitionPreviewHover"]
+    }
+  ],
+  "vim.visualModeKeyBindings": [
+    // Stay in visual mode while indenting
+    { "before": ["<"], "commands": ["editor.action.outdentLines"] },
+    { "before": [">"], "commands": ["editor.action.indentLines"] },
+    // Move selected lines while staying in visual mode
+    { "before": ["J"], "commands": ["editor.action.moveLinesDownAction"] },
+    { "before": ["K"], "commands": ["editor.action.moveLinesUpAction"] },
+    // toggle comment selection
+    // { "before": ["leader", "c"], "commands": ["editor.action.commentLine"] }
+  ],
+  "symbols.hidesExplorerArrows": false,
+  "extensions.experimental.affinity": {
+    "asvetliakov.vscode-neovim": 1
   },
-  {
-    "key": "ctrl+shift+b",
-    "command": "workbench.action.terminal.focusPrevious",
-    "when": "terminalFocus"
-  },
-  {
-    "key": "ctrl+shift+j",
-    "command": "workbench.action.togglePanel"
-  },
-  {
-    "key": "ctrl+shift+n",
-    "command": "workbench.action.terminal.new",
-    "when": "terminalFocus"
-  },
-  {
-    "key": "ctrl+shift+w",
-    "command": "workbench.action.terminal.kill",
-    "when": "terminalFocus"
-  },
-  // FILE TREE
-  {
-    "command": "workbench.action.toggleSidebarVisibility",
-    "key": "ctrl+e"
-  },
-  {
-    "command": "workbench.files.action.focusFilesExplorer",
-    "key": "ctrl+e",
-    "when": "editorTextFocus"
-  },
-]
+}
